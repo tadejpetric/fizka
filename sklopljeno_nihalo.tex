@@ -223,8 +223,35 @@ Nihajni čas
 \end{table}\\
 Napaka je zanemarljiva.
 \begin{align*}
-  t=1.790s\\
-  \omega=3.510Hz
+  t_3=1.790s\\
+  \omega_3=3.510Hz
 \end{align*}
+
+Čas med dvema mirovanje mirovanjema
+\begin{table}[h]
+  \centering
+  \begin{tabular}{*{8}{c}}
+    Nihalo & 1:4 & 2:4 & 3:4 & 4:4 & 5:4 & avg:4 & avg:1 \\\toprule
+    1 & 288.6s & 288.4s & 287.2s & 288.7s & 289.4s & 288.5s & 72.1s\\\midrule
+    2 & 288.5s & 290.2s & 288.6s & 289.8s & 288.8s & 289.2s & 72.3s \\\bottomrule
+  \end{tabular}
+\end{table}
+Absolutna napaka je tukaj večja (Ocenjena na \(\Delta t_4 = \pm 1s\)) zaradi težavnosti ugotavljanja mirovanja nihala. Še vedno pa je relativna napaka v tisočinkah, kar je zanemarljivo.
+\begin{align*}
+  t_4 = 72.2s\\
+  \omega_4 = 0.087Hz
+\end{align*}
+\subsubsection{Teorija}
+\begin{table}[h]
+  \centering
+  \begin{tabular}{*{5}{c}}\toprule
+    & $t_1$ & $t_2$ & $t_3$ & $t_4$ \\\midrule
+    Izmerjeno & 1.85s & 1.80s & 1.79s & 72.2s \\
+    Izračunano & 1.85s & 1.80s & 1.83s & 70.0s\\\toprule
+    & $\omega_1$ & $\omega_2$ & $\omega_3$ & $\omega_4$ \\\midrule
+    Izmerjeno & 3.40s & 3.49s & 3.51s & 0.087s \\
+    Izračunano & 3.39s & 3.48s & 3.44 & 0.090s \\\bottomrule
+  \end{tabular}
+\end{table}
 
 \end{document}
