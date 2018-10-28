@@ -1,0 +1,230 @@
+\documentclass[a4paper]{article}
+
+%okolja za enacbe
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{pgfplots}
+\usepackage{booktabs}
+
+%font & encodings
+\usepackage[utf8]{inputenc} % UTF-8 input encoding
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+\usepackage{lmodern}
+\usepackage{textcase}
+
+\begin{document}
+\title{Sklopljeno nihalo}
+\author{Tadej Petrič}
+\date{9.\ 10.\ 2018}
+\maketitle
+
+\section{Teorija}
+\subsection{Gibanje matematičnega nihala}
+% minus pri navoru je ker je navor v smeri urinega kazalca okoli točke vrtenja
+Naj bo vztrajnostni moment nihala $J = Ml^2$, kjer je $M$ masa uteži, $l$ pa oddaljenost uteži od vrha nihala. Navor izhaja le iz uteži. Opišemo ga lahko z enačbo $\tau_a = -Mgl\sin\theta$, kjer je $\theta$ kot med nihalom in navpičnico, $g$ pa gravitacijski pospešek. Predpostavimo, da je $\theta\ll1\implies \sin\theta \approx \theta$
+\begin{align*}
+  \tau_a &= J\frac{d^2\theta}{dt^2}\\
+  -Mgl\theta &= J\frac{d^2\theta}{dt^2}\\
+  \frac{d^2\theta}{dt^2}+\frac{Mgl}{J}\theta &= 0\\
+  \frac{d^2\theta}{dt^2}+\frac{g}{l}\theta &= 0
+\end{align*}
+Ko rešimo enačbo za $\theta$ dobimo:
+\begin{align*}
+  \theta &= A\cos(\omega t)\\
+  \omega &= \sqrt\frac{g}{l}
+\end{align*}
+kjer je $\omega$ frekvenca
+\subsection{Gibanje pravega nihala}
+ Enačbe pridobimo podobno, le J je bolj splošen in odvisen od oblike predmeta.
+\[
+\omega = \sqrt{\frac{Mgl}{J}}
+\]
+
+Za našo nalogo potrebujemo J za votel valj in za valj.
+\begin{align*}
+  \text{valj: }J = \frac{mr^2}{4}+\frac{mh^2}{12}\\
+  \text{votel valj: }J = m\frac{R^2+r^2}{4} + \frac{mh^2}{12}
+\end{align*}
+\subsection{Sklopljeno nihalo}
+Če dva enaka nihala povežemo z vzmetjo dobimo sklopljeno nihalo. 
+\subsubsection{Prvo lastno nihanje}
+Prvo lastno nihanje nastane, ko nihala istočasno spustimo iz enakega kota. Vzmet je takrat ves čas enako napeta in ne vpliva na nihanje. Nihali se gibljeta enako kot če ne bi bila povezana.
+\[
+\theta_1 = \theta_2 = A\cos(\omega_1 t)
+\]
+
+\subsection{Drugo lastno nihanje}
+Drugo lastno nihanje nastane, ko nihala istočasno spustimo iz nasprotnega kota. Vzmet deluje na nihanje in ga pospeši, gibanje pa je še vedno sinusno. Gibanje tudi ostane simetrično saj vzmet deluje enako na oba nihala.
+\begin{align*}
+  \frac{d^2\theta}{dt^2} +\theta \frac{mgl+2kd^2}{J} = 0\\ %težnost + navor vzmeti
+  \theta_1 = -\theta_2 = A\cos(\omega_2 t)\\
+  \omega_2 = \sqrt{\frac{mgl+2kd^2}{m}}
+\end{align*}
+kjer je, $k$ predstavlja koeficient vzmeti, $m$ pa maso nihala.
+\subsection{Utripanje}
+Utripanje je gibanje pri katerem eno nihalo začne pri skrajni legi, drugo pa na sredini, v mirovanju. Preko vzmeti se energija prenese na drugo nihalo. Nastalo gibanje je linearna kombinacija lastnih nihanj. Pokaže se, da lahko katero koli gibanje sklopljenega nihala predstavimo kot linearno kombinacijo lastnih nihanj.
+\begin{align*}
+  \theta_1 = \frac A 2\cos(\omega_1t)+\frac A 2 \cos(\omega_2t)\\
+  \theta_1 = A \cos\left(t\frac{\omega_2-\omega_1}{2}\right)\cos\left(t\frac{\omega_2+\omega_1}{2}\right)\\
+  \theta_2 = \frac A 2\cos(\omega_1t)-\frac A 2 \cos(\omega_2t)\\
+  \theta_2 = A \sin\left(t\frac{\omega_2-\omega_1}{2}\right)\sin\left(t\frac{\omega_2+\omega_1}{2}\right)\\ 
+\end{align*}
+Gibali utripata s frekvenco \(\omega = \omega2-\omega1\).
+\section{Praktično delo}
+\subsection{Podatki o nihalu}
+Nihalo je sestavljeno iz dveh valjev. Prvi valj je poln in daljši, predstavlja palico. Drugi je pripet ob koncu prvega valja, predstavlja utež.
+\subsubsection{Lastnosti palice}
+\begin{align*}
+  r = 45mm\\
+  h = 98cm\\
+  m = 210g\\
+  \text{Pozicija vzmeti} = 10.5cm
+\end{align*}
+
+Izračunamo lahko vztrajnostni moment palice.
+\begin{align*}
+  J_p = \frac{mr^2}{4}+\frac{mh^2}{3}\\
+  J_p = 0.06733kgm^2
+\end{align*}
+\subsubsection{Lastnosti uteži}
+\begin{align*}
+  R = 215mm\\
+  r = 45mm\\
+  h = 8.4cm\\
+  l = 87.5cm\\
+  m = 1025g,
+\end{align*}
+kjer je $l$ oddaljenost središča uteži od vrha nihala.
+
+Izračunamo lahko vztrajnostni moment uteži (za premik uporabimo Steinerjev izrek).
+\begin{align*}
+  J_u = m\frac{R^2+r^2}{4} + \frac{mh^2}{12} + ml^2\\
+  J_u = 0.79773kgm^2
+\end{align*}
+\subsection{Samostojna nihala}
+Na obeh nihalih smo izvedli meritve
+\subsubsection{Prvo nihalo}
+\begin{align*}
+  t_{30} = 55.4s\\
+  \omega_1 = 0.54 Hz\\
+  t_{01} = 1.85
+\end{align*}
+
+\subsubsection{Drugo nihalo}
+
+\begin{align*}
+  t_{30} = 55.6s\\
+  \omega_2 = 0.54 Hz\\
+  t_{02} = 1.85s
+\end{align*}
+
+
+\subsection{Vzmet}
+Koeficient vzmeti smo izračunali tako, da smo izmerili razteg vzmeti glede na pripeto utež.
+
+\begin{tabular}{l c c c c c} \toprule
+  masa & 0g & 20g & 50g & 70g & 150g\\\midrule
+  dolžina & 76.6cm & 77.3cm & 78.5cm & 79.3cm & 82.6cm\\\midrule
+  razteg & 0cm & 0.7cm & 1.9cm & 2.7cm & 6cm\\\bottomrule
+\end{tabular}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+  \begin{axis}[
+      axis lines=middle,
+      xmin=0, xmax=150,
+      ymin=0, ymax=85,
+      ylabel=cm, xlabel=g
+    ]
+    \addplot [only marks] table{
+      0 76.6
+      20 77.3
+      50 78.5
+      70 79.3
+      150 82.6
+    };
+    \addplot [domain=0:150, samples=2, dashed] {0.04*x+76.55};
+  \end{axis}
+\end{tikzpicture}
+  \caption{dolžina vzmeti v odvisnosti od mase}
+\end{figure}
+
+\begin{figure}[htp]
+  \centering
+\begin{tikzpicture}
+  \begin{axis} [
+    axis lines=middle,
+    xmin=0, xmax=150,
+    ymin=0, ymax=10,
+    ylabel=$\Delta$cm, xlabel=g
+    ]
+    \addplot [only marks] table{
+      0 0
+      20 0.7
+      50 1.9
+      70 2.7
+      150 6
+    };
+    \addplot [domain=0:150, samples=2, dashed] {0.04*x-0.07};
+  \end{axis}
+\end{tikzpicture}
+  \caption{sprememba dolžine vzmeti v odvisnosti od mase}
+\end{figure}
+
+Z računalnikom naredimo linearno regresijo, ki nam poišče koeficient vzmeti.
+\[
+  k=24\frac N m
+\]
+\subsection{Nihalo}
+Vztrajnostni moment nihala je \(J = J_p+J_u = 0.865kgm^2\).
+\subsection{Meritve}
+Rezultati v tabelah so oblike meritev:število nihajev.
+\subsubsection{Prvo lastno nihanje}
+\begin{table}[htb]
+  \centering
+\begin{tabular}{*{7}{c}}
+  Nihalo & 1:20 & 2:20 & 3:20 & 4:20 & avg:20 & avg:1\\\toprule
+  1 & 36.8s & 37.1s & 36.9s & 36.9s & 36.9s & 1.85s\\\midrule
+  2 & 37.0s & 37.3s & 37.0s & 37.0s & 37.1s & 1.85s\\\bottomrule
+\end{tabular}
+\end{table}
+Napaka je zanemarljiva.
+\begin{align*}
+  t_1 = 1.85s\\
+  \omega_1 = 3.396Hz
+\end{align*}
+\subsubsection{Drugo lastno nihanje}
+\begin{table}[htb]
+  \centering
+\begin{tabular}{*{7}{c}}
+  Nihalo & 1:20 & 2:20 & 3:20 & 4:20 & avg:20 & avg:1\\\toprule
+  1 & 35.9s & 35.8s & 36.1s & 36.0s & 35.6s & 1.8s \\\midrule
+  2 & 36.0s & 36.1s & 36.1s & 36.0s & 36.1s & 1.8s \\\bottomrule
+\end{tabular}
+\end{table}
+Napaka je zanemarljiva.
+\begin{align*}
+  t_2 = 1.80s\\
+  \omega_2 = 3.491Hz
+\end{align*}
+\subsubsection{Utripanje}
+Nihajni čas
+\begin{table}[h]
+  \centering
+\begin{tabular}{*{6}{c}}
+  Nihalo & 1:20 & 2:20 & 3:20 & 4:20 & avg:1\\\toprule
+  1 & 36.9s & 35.8s & 35.6 & 35.8s & 1.79s \\\midrule
+  2 & 35.9s & 35.9s & 35.8s & 35.9s & 1.79s \\\bottomrule
+\end{tabular}
+\end{table}\\
+Napaka je zanemarljiva.
+\begin{align*}
+  t=1.790s\\
+  \omega=3.510Hz
+\end{align*}
+
+\end{document}
